@@ -466,8 +466,8 @@ func configureLogging(staticConfiguration *static.Configuration) {
 		}
 	}
 
-	if staticConfiguration.Log.Fluent != "" {
-		hook, err := log.NewFluentHook(level, staticConfiguration.Log.Fluent)
+	if staticConfiguration.LogHooks.Fluent != "" {
+		hook, err := log.NewFluentHook(level, staticConfiguration.LogHooks.Fluent)
 		if err != nil {
 			log.WithoutContext().Errorf("Error setting up fluent logrus hook : %v", err)
 		}

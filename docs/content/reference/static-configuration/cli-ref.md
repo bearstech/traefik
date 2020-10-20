@@ -198,14 +198,17 @@ Traefik log settings. (Default: ```false```)
 `--log.filepath`:  
 Traefik log file path. Stdout is used when omitted or empty.
 
-`--log.fluent`:  
-Fluentd endpoint (format: http(s)://host:port)
-
 `--log.format`:  
 Traefik log format: json | common (Default: ```common```)
 
 `--log.level`:  
 Log level set to traefik logs. (Default: ```ERROR```)
+
+`--loghooks`:  
+Traefik log hooks settings. (Default: ```false```)
+
+`--loghooks.fluent`:  
+Fluent endpoint (format: http(s)://host:port)
 
 `--metrics.datadog`:  
 Datadog metrics exporter type. (Default: ```false```)

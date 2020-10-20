@@ -195,11 +195,14 @@ The maximal depth of DNS recursive resolving (Default: ```5```)
 `TRAEFIK_LOG`:  
 Traefik log settings. (Default: ```false```)
 
+`TRAEFIK_LOGHOOKS`:  
+Traefik log hooks settings. (Default: ```false```)
+
+`TRAEFIK_LOGHOOKS_FLUENT`:  
+Fluent endpoint (format: http(s)://host:port)
+
 `TRAEFIK_LOG_FILEPATH`:  
 Traefik log file path. Stdout is used when omitted or empty.
-
-`TRAEFIK_LOG_FLUENT`:  
-Fluentd endpoint (format: http(s)://host:port)
 
 `TRAEFIK_LOG_FORMAT`:  
 Traefik log format: json | common (Default: ```common```)
