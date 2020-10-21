@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/url"
 	"strconv"
+	"time"
 
 	"github.com/evalphobia/logrus_fluent"
 	"github.com/sirupsen/logrus"
@@ -29,8 +30,11 @@ func NewFluentHook(level logrus.Level, endpoint string, tag string) error {
 	}
 
 	hook, err := logrus_fluent.NewWithConfig(logrus_fluent.Config{
-		Host: url.Hostname(),
-		Port: port,
+		Host:      url.Hostname(),
+		Port:      port,
+		Timeout:   1 * time.Second,
+		MaxRetry:  10,
+		RetryWait: 100,
 	})
 	if err != nil {
 		return err
