@@ -207,8 +207,14 @@ Log level set to traefik logs. (Default: ```ERROR```)
 `--loghooks`:  
 Traefik log hooks settings. (Default: ```false```)
 
-`--loghooks.fluent`:  
-Fluent endpoint (format: http(s)://host:port)
+`--loghooks.fluenthook`:  
+
+
+`--loghooks.fluenthook.endpoint`:  
+Fluent endpoint (Format: http(s)://host:port)
+
+`--loghooks.fluenthook.tag`:  
+Fluent tag (Default: traefik) (Default: ```traefik```)
 
 `--metrics.datadog`:  
 Datadog metrics exporter type. (Default: ```false```)

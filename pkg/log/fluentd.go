@@ -12,7 +12,7 @@ import (
 const fluentPort = 24224
 
 // NewFluentHook return a fluentd hook for logrus logging
-func NewFluentHook(level logrus.Level, endpoint string) (*logrus_fluent.FluentHook, error) {
+func NewFluentHook(level logrus.Level, endpoint string, tag string) (*logrus_fluent.FluentHook, error) {
 	// parse url
 	url, err := url.Parse(endpoint)
 	if err != nil {
@@ -39,7 +39,7 @@ func NewFluentHook(level logrus.Level, endpoint string) (*logrus_fluent.FluentHo
 
 	// set loglevel to level defined in config
 	hook.SetLevels([]logrus.Level{level})
-	hook.SetTag("traefik.tag")
+	hook.SetTag(tag)
 
 	return hook, err
 }

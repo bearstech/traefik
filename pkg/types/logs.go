@@ -32,14 +32,26 @@ func (l *TraefikLog) SetDefaults() {
 	l.Level = "ERROR"
 }
 
+// FluentLogHook holds Fluentd logrus hook configuration
+type FluentLogHook struct {
+	Endpoint string `description:"Fluent endpoint (Format: http(s)://host:port)" json:"endpoint,omitempty" toml:"endpoint,omitempty" yaml:"endpoint,omitempty"`
+	Tag      string `description:"Fluent tag (Default: traefik)" json:"tag,omitempty" toml:"tag,omitempty" yaml:"tag,omitempty"`
+}
+
+// SetDefaults sets the default values
+func (h *FluentLogHook) SetDefaults() {
+	h.Endpoint = ""
+	h.Tag = "traefik"
+}
+
 // TraefikLogHooks holds configuration settings for current logger hooks (logrus)
 type TraefikLogHooks struct {
-	Fluent string `description:"Fluent endpoint (format: http(s)://host:port)" json:"fluent,omitempty" toml:"fluent,omitempty" yaml:"fluent,omitempty"`
+	FluentHook FluentLogHook
 }
 
 // SetDefaults sets the default values.
 func (l *TraefikLogHooks) SetDefaults() {
-	l.Fluent = ""
+	l.FluentHook.SetDefaults()
 }
 
 // AccessLog holds the configuration settings for the access logger (middlewares/accesslog).
