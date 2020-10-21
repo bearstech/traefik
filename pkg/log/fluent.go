@@ -25,7 +25,6 @@ func NewFluentHook(level logrus.Level, endpoint string, tag string) error {
 		port, err = strconv.Atoi(url.Port())
 		if err != nil {
 			return err
-
 		}
 	}
 
