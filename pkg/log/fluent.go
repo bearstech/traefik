@@ -11,12 +11,12 @@ import (
 
 const fluentPort = 24224
 
-// NewFluentHook return a fluentd hook for logrus logging
-func NewFluentHook(level logrus.Level, endpoint string, tag string) (*logrus_fluent.FluentHook, error) {
+// NewFluentHook return a fluent hook for logrus logging
+func NewFluentHook(level logrus.Level, endpoint string, tag string) error {
 	// parse url
 	url, err := url.Parse(endpoint)
 	if err != nil {
-		return nil, fmt.Errorf("Can't parse fluent endpoint: %v", err)
+		return fmt.Errorf("Can't parse fluent endpoint: %v", err)
 	}
 
 	// parse port, use default one if none provided
@@ -24,7 +24,7 @@ func NewFluentHook(level logrus.Level, endpoint string, tag string) (*logrus_flu
 	if url.Port() != "" {
 		port, err = strconv.Atoi(url.Port())
 		if err != nil {
-			return nil, err
+			return err
 
 		}
 	}
@@ -34,12 +34,15 @@ func NewFluentHook(level logrus.Level, endpoint string, tag string) (*logrus_flu
 		Port: port,
 	})
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	// set loglevel to level defined in config
 	hook.SetLevels([]logrus.Level{level})
 	hook.SetTag(tag)
 
-	return hook, err
+	AddHook(hook)
+	WithoutContext().Info("Fluent hook setup")
+
+	return err
 }
