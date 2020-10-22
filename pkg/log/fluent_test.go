@@ -34,8 +34,6 @@ func (s *Server) ListenAndServe(address string, addr chan<- string, wg *sync.Wai
 
 	addr <- listener.Addr().String()
 
-	fmt.Println(listener.Addr())
-
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
