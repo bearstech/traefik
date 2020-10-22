@@ -69,6 +69,8 @@ func (s *Server) handler(conn net.Conn, wg *sync.WaitGroup) {
 
 func TestFluent(t *testing.T) {
 
+	SetFormatter(&logrus.TextFormatter{DisableColors: true})
+
 	var wg sync.WaitGroup
 	ready := make(chan bool)
 	srv := New()
@@ -78,7 +80,6 @@ func TestFluent(t *testing.T) {
 	<-ready
 
 	wg.Add(1)
-	// FIXME: it looks like it modifies the singleton, breaking other tests
 	err := NewFluentHook(logrus.InfoLevel, fluentEndpoint, "test")
 	if err != nil {
 		t.Error(err)
