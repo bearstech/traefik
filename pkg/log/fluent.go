@@ -32,8 +32,8 @@ func AddFluentHook(level logrus.Level, endpoint string, tag string) error {
 	hook, err := logrus_fluent.NewWithConfig(logrus_fluent.Config{
 		Host:      url.Hostname(),
 		Port:      port,
-		Timeout:   1 * time.Second,
-		MaxRetry:  10,
+		Timeout:   500 * time.Millisecond,
+		MaxRetry:  3,
 		RetryWait: 100,
 	})
 	if err != nil {
