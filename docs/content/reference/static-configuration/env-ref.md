@@ -195,6 +195,18 @@ The maximal depth of DNS recursive resolving (Default: ```5```)
 `TRAEFIK_LOG`:  
 Traefik log settings. (Default: ```false```)
 
+`TRAEFIK_LOGHOOKS`:  
+Traefik log hooks settings. (Default: ```false```)
+
+`TRAEFIK_LOGHOOKS_FLUENTHOOK`:  
+
+
+`TRAEFIK_LOGHOOKS_FLUENTHOOK_ENDPOINT`:  
+Fluent endpoint (Format: http(s)://host:port)
+
+`TRAEFIK_LOGHOOKS_FLUENTHOOK_TAG`:  
+Fluent tag (Default: traefik) (Default: ```traefik```)
+
 `TRAEFIK_LOG_FILEPATH`:  
 Traefik log file path. Stdout is used when omitted or empty.
 

@@ -465,6 +465,14 @@ func configureLogging(staticConfiguration *static.Configuration) {
 			log.WithoutContext().Errorf("Error while opening log file %s: %v", logFile, err)
 		}
 	}
+
+	if staticConfiguration.LogHooks.FluentHook.Endpoint != "" {
+		err := log.AddFluentHook(level, staticConfiguration.LogHooks.FluentHook.Endpoint, staticConfiguration.LogHooks.FluentHook.Tag)
+		if err != nil {
+			log.WithoutContext().Errorf("Error setting up fluent logrus hook : %v", err)
+		}
+	}
+
 }
 
 func checkNewVersion() {
