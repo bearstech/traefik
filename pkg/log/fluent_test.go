@@ -13,7 +13,7 @@ import (
 	"github.com/vmihailenco/msgpack/v5"
 )
 
-const fluentEndpoint = "localhost:24224"
+const fluentEndpoint = "localhost:0"
 
 type Server struct {
 	Blobs []interface{}
@@ -23,13 +23,15 @@ func New() *Server {
 	return &Server{}
 }
 
-func (s *Server) ListenAndServe(address string, ready chan<- bool, wg *sync.WaitGroup) error {
-	listener, err := net.Listen("tcp", address)
+func (s *Server) ListenAndServe(address string, addr chan<- string, wg *sync.WaitGroup) error {
+	listener, err := net.Listen("tcp", fluentEndpoint)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	ready <- true
+	addr <- listener.Addr().String()
+
+	fmt.Println(listener.Addr())
 
 	for {
 		conn, err := listener.Accept()
@@ -72,15 +74,15 @@ func TestFluent(t *testing.T) {
 	SetFormatter(&logrus.TextFormatter{DisableColors: true})
 
 	var wg sync.WaitGroup
-	ready := make(chan bool)
+	addr := make(chan string)
 	srv := New()
 
-	go srv.ListenAndServe(fluentEndpoint, ready, &wg)
+	go srv.ListenAndServe(fluentEndpoint, addr, &wg)
 
-	<-ready
+	address := <-addr
 
 	wg.Add(1)
-	err := NewFluentHook(logrus.InfoLevel, fluentEndpoint, "test")
+	err := NewFluentHook(logrus.InfoLevel, fmt.Sprintf("http://%s", address), "test")
 	if err != nil {
 		t.Error(err)
 	}
