@@ -10,13 +10,16 @@ import (
 	"testing"
 
 	"github.com/sirupsen/logrus"
+	"github.com/stretchr/testify/assert"
 	"github.com/vmihailenco/msgpack/v5"
 )
 
 const fluentEndpoint = "localhost:0"
 
+type Message []interface{}
+
 type Server struct {
-	Blobs []interface{}
+	Messages []Message
 }
 
 func New() *Server {
@@ -64,7 +67,7 @@ func (s *Server) handler(conn net.Conn, wg *sync.WaitGroup) {
 			return
 		}
 
-		s.Blobs = append(s.Blobs, m)
+		s.Messages = append(s.Messages, m)
 		wg.Done()
 	}
 }
@@ -93,9 +96,11 @@ func TestFluent(t *testing.T) {
 
 	wg.Wait()
 
-	// TODO: check how to validate
-	for _, value := range srv.Blobs {
-		fmt.Println(value)
+	values, ok := srv.Messages[1][2].(map[string]interface{})
+	if !ok {
+		t.Error("Can't unpack message pack fluent values")
 	}
+
+	assert.Equal(t, values[""].(string), "testing fluent")
 
 }
