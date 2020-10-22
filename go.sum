@@ -820,6 +820,12 @@ github.com/urfave/cli v1.22.1/go.mod h1:Gos4lmkARVdJ6EkW0WaNv/tZAAMe9V7XWyB60NtX
 github.com/urfave/cli v1.22.4/go.mod h1:Gos4lmkARVdJ6EkW0WaNv/tZAAMe9V7XWyB60NtXRu0=
 github.com/vdemeester/shakers v0.1.0 h1:K+n9sSyUCg2ywmZkv+3c7vsYZfivcfKhMh8kRxCrONM=
 github.com/vdemeester/shakers v0.1.0/go.mod h1:IZ1HHynUOQt32iQ3rvAeVddXLd19h/6LWiKsh9RZtAQ=
+github.com/vmihailenco/msgpack v4.0.4+incompatible h1:dSLoQfGFAo3F6OoNhwUmLwVgaUXK79GlxNBwueZn0xI=
+github.com/vmihailenco/msgpack/v4 v4.3.11/go.mod h1:gborTTJjAo/GWTqqRjrLCn9pgNN+NXzzngzBKDPIqw4=
+github.com/vmihailenco/msgpack/v5 v5.0.0-beta.1 h1:d71/KA0LhvkrJ/Ok+Wx9qK7bU8meKA1Hk0jpVI5kJjk=
+github.com/vmihailenco/msgpack/v5 v5.0.0-beta.1/go.mod h1:xlngVLeyQ/Qi05oQxhQ+oTuqa03RjMwMfk/7/TCs+QI=
+github.com/vmihailenco/tagparser v0.1.1 h1:quXMXlA39OCbd2wAdTsGDlK9RkOk6Wuw+x37wVyIuWY=
+github.com/vmihailenco/tagparser v0.1.1/go.mod h1:OeAg3pn3UbLjkWt+rN9oFYB6u/cQgqMEUPoW2WPyhdI=
 github.com/vulcand/oxy v1.1.0 h1:DbBijGo1+6cFqR9jarkMxasdj0lgWwrrFtue6ijek4Q=
 github.com/vulcand/oxy v1.1.0/go.mod h1:ADiMYHi8gkGl2987yQIzDRoXZilANF4WtKaQ92OppKY=
 github.com/vulcand/predicate v1.1.0 h1:Gq/uWopa4rx/tnZu2opOSBqHK63Yqlou/SzrbwdJiNg=

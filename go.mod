@@ -34,7 +34,6 @@ require (
 	github.com/elazarl/go-bindata-assetfs v1.0.0
 	github.com/evalphobia/logrus_fluent v0.5.4
 	github.com/fatih/structs v1.1.0
-	github.com/tinylib/msgp v1.1.2
 	github.com/fluent/fluent-logger-golang v1.5.0 // indirect
 	github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568 // indirect
 	github.com/gambol99/go-marathon v0.0.0-20180614232016-99a156b96fb2
@@ -74,7 +73,7 @@ require (
 	github.com/sirupsen/logrus v1.4.2
 	github.com/stretchr/testify v1.6.1
 	github.com/stvp/go-udp-testing v0.0.0-20191102171040-06b61409b154
-	github.com/tinylib/msgp v1.0.2 // indirect
+	github.com/tinylib/msgp v1.1.2
 	github.com/traefik/paerser v0.1.0
 	github.com/traefik/yaegi v0.9.0
 	github.com/uber/jaeger-client-go v2.25.0+incompatible
@@ -82,6 +81,7 @@ require (
 	github.com/unrolled/render v1.0.2
 	github.com/unrolled/secure v1.0.7
 	github.com/vdemeester/shakers v0.1.0
+	github.com/vmihailenco/msgpack/v5 v5.0.0-beta.1
 	github.com/vulcand/oxy v1.1.0
 	github.com/vulcand/predicate v1.1.0
 	go.elastic.co/apm v1.7.0
