@@ -12,8 +12,8 @@ import (
 
 const fluentPort = 24224
 
-// NewFluentHook return a fluent hook for logrus logging
-func NewFluentHook(level logrus.Level, endpoint string, tag string) error {
+// AddFluentHook return a fluent hook for logrus logging
+func AddFluentHook(level logrus.Level, endpoint string, tag string) error {
 	// parse url
 	url, err := url.Parse(endpoint)
 	if err != nil {

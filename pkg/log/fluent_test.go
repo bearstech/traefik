@@ -85,7 +85,7 @@ func TestFluent(t *testing.T) {
 	address := <-addr
 
 	wg.Add(1)
-	err := NewFluentHook(logrus.InfoLevel, fmt.Sprintf("http://%s", address), "test")
+	err := AddFluentHook(logrus.InfoLevel, fmt.Sprintf("http://%s", address), "test")
 	if err != nil {
 		t.Error(err)
 	}
