@@ -96,6 +96,8 @@ func TestFluent(t *testing.T) {
 
 	wg.Wait()
 
+	assert.Equal(t, len(srv.Messages), 2)
+
 	values, ok := srv.Messages[1][2].(map[string]interface{})
 	if !ok {
 		t.Error("Can't unpack message pack fluent values")
